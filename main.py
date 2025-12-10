@@ -28,7 +28,12 @@ async def get_video_info(data: dict = Body(...)):
         ydl_opts = {
             'quiet': True, 
             'no_warnings': True,
-            'noplaylist': True  # Critical for Mix/Playlist URLs to only get the single video
+            'noplaylist': True,
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['android', 'ios']
+                }
+            }
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
