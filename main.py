@@ -31,7 +31,7 @@ async def get_video_info(data: dict = Body(...)):
             'noplaylist': True,
             'extractor_args': {
                 'youtube': {
-                    'player_client': ['android', 'ios']
+                    'player_client': ['android']
                 }
             }
         }
